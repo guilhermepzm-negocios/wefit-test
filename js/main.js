@@ -1,9 +1,12 @@
 const divCards = document.getElementsByClassName("row")[2];
 const cards = divCards.getElementsByClassName("col-lg-3");
+const divTitle = divCards.getElementsByClassName("col-lg-12")[0];
 cards[0].getElementsByClassName("btn btn-primary")[0].className =
   "btn btn-success";
 const cardsOrdered = [cards[3], cards[0], cards[2], cards[1]];
-divCards.innerHTML = cardsOrdered.map((card) => card.outerHTML).join("");
+divCards.innerHTML = divTitle.outerHTML.concat(
+  cardsOrdered.map((card) => card.outerHTML).join("")
+);
 
 const jumbotron = document.getElementsByClassName("jumbotron")[0];
 jumbotron.style["text-align"] = "right";
